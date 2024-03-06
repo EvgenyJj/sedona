@@ -1,0 +1,397 @@
+@font-face {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../fonts/PTSans-Regular.woff2) format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "PT Sans";
+  font-style: normal;
+  font-weight: 700;
+  src: url(../fonts/PTSans-Bold.woff2) format("woff2");
+  font-display: swap;
+}
+
+/**
+  Нормализация блочной модели
+ */
+ *,
+ *::before,
+ *::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+*/
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+  */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+*/
+:where(
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl
+):where([class]) {
+  margin-block: 0;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+*/
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Упрощаем работу с изображениями
+*/
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+*/
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+    */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+    */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+    */
+  line-height: 1.5;
+}
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  border: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap !important;
+  clip-path: inset(100%) !important;
+  clip: rect(0 0 0 0) !important;
+  overflow: hidden !important;
+}
+
+:root {
+  --color-dark: #000000;
+  --color-dark-alt: #333333;
+  --color-brown: #615048;
+  --color-brown-light:#756157;
+  --color-brown-light-alt: #756257;
+  --color-ligth: #FFFFFF;
+  --color-light-second: #E5E5E5;
+  --color-light-third: #F2F2F2;
+  --color-blue: #68A2CA;
+  --color-light-blue: #82B3D3;
+  --color-light-blue-alt: #83B3D3;
+  --color-dark-blue: #3F5E72;
+  --color-green: #6C9E42;
+  --color-light-green: #7DB54F;
+  --color-light-green-alt: #7DB54F;
+  --color-error: #FF5757;
+}
+
+body {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 18px;
+  line-height: 1.17;
+  color: var(--color-dark);
+  background-color: var(--color-light-third);
+  min-width: 1280px;
+}
+
+.page-container {
+  min-height: 100%;
+  width: 1200px;
+  margin: 0 auto;
+  background-color: var(--color-ligth);
+  box-shadow: 0 0 15px rgb(0, 0, 0, 0.2);
+}
+
+/*-----header-----*/
+.page-header-container {
+  display: flex;
+  align-items: center;
+  padding-inline: 70px;
+}
+
+.navigation-logo-link {
+  position: relative;
+  width: 140px;
+  margin-bottom: -6px;
+  margin-right: 30px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-list,
+.navigation-user {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navigation-list {
+  margin-right: 285px;
+}
+
+.navigation-user {
+  margin-right: 32px;
+  column-gap: 12px;
+}
+
+.navigation-link {
+  display: block;
+  padding: 20px 16px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.navigation-link-current {
+  position: relative;
+}
+
+.navigation-link-current::after {
+  position: absolute;
+  bottom: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  background-color: var(--color-brown-light-alt);
+  content: "";
+}
+
+.navigation-user-link {
+  position: relative;
+  display: block;
+  padding: 22px 12px;
+  width: 20px;
+  height: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  text-decoration: none;
+  color: var(--color-dark);
+}
+
+.navigation-user-link-search {
+  background: url("../images/icons/search.svg") center no-repeat;
+}
+
+.navigation-user-link-favorite {
+  background: url("../images/icons/heart.svg") center no-repeat;
+}
+
+.header-button {
+  display: inline-block;
+  padding: 8px 10px;
+  width: 160px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-ligth);
+  background-color: var(--color-brown-light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.header-button:hover,
+.header-button:focus-visible {
+  background-color: var(--color-brown);
+}
+
+@supports not selector(:focus-visible) {
+  .header-button:focus {
+    background-color: var(--color-brown);
+  }
+}
+
+.header-button:active {
+  color: rgba(225, 225, 225, 0.3);
+  background-color: var(--color-brown-light);
+}
+
+.header-button:disabled {
+  background-color: var(--color-light-second);
+  pointer-events: none;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 3px;
+  right: -7px;
+  overflow: hidden;
+  padding: 5px 4px;
+  font-size: 10px;
+  line-height: 1;
+  text-align: center;
+  border-radius: 50%;
+  color: var(--color-ligth);
+  background-color: var(--color-light-green);
+}
+
+/*-----main-----*/
+/*-----hero-----*/
+.hero {
+  padding-top: 51px;
+  padding-bottom: 82px;
+  min-height: 352px;
+  margin: 0 auto;
+  background: url("../images/hero-border.svg") center bottom/contain no-repeat,
+              url("../images/hero-bg.jpg") center/cover no-repeat;
+}
+
+.hero-image {
+  margin: 0 auto;
+}
+
+/*-----advantages-----*/
+.advantages {
+  padding-top: 69px;
+}
+
+.lead {
+  margin: 0 auto 25px;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.advantages-list-title {
+  margin: 0 auto 90px;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--color-dark-alt);
+  text-align: center;
+}
+
+.advantages-list {
+  display: grid;
+  grid-template-columns: repeat(3, 400px);
+}
+
+.advantages-item {
+  background-color: #83B3D312;
+}
+
+.advantages-item-dark {
+  background-color: #83B3D320;
+}
+
+.advantages-item-wide {
+  grid-column: 1 / -1;
+  display: flex;
+  background-color: var(--color-light-blue);
+}
+
+.advantages-item-wide-reverse {
+  flex-direction: row-reverse;
+}
+
+.advantages-item-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 30px;
+  padding: 102px 85px;
+  margin: 0 auto;
+}
+
+.advantages-item-container::before {
+  content: "";
+  order: 2;
+  width: 60px;
+  height: 2px;
+  background-color: #00000030;
+}
+
+.advantages-item-wide .advantages-item-container::before {
+  background-color: #FFFFFF30;
+}
+
+.advantages-item-title {
+  max-width: 175px;
+  font-size: 24px;
+  line-height: 1.16;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.advantages-item-description {
+  text-align: center;
+  color: var(--color-dark-alt);
+  order: 3;
+}
+
+.advantages-item-wide .advantages-item-title,
+.advantages-item-wide .advantages-item-description {
+  color: var(--color-ligth);
+}
+
