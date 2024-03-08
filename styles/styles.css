@@ -275,7 +275,8 @@ body {
   background-color: var(--color-brown-light);
 }
 
-.header-button:disabled {
+.header-button:disabled,
+.header-button-disabled {
   background-color: var(--color-light-second);
   pointer-events: none;
 }
@@ -427,7 +428,7 @@ body {
 .infrastructure-item {
   width: 400px;
   padding: 181px 85px 81px;
-  background-color: #83B3D312;
+  background-color: #83B3D330;
 }
 
 .infrastructure-item:nth-child(2n) {
@@ -463,4 +464,191 @@ body {
 .infrastructure-item-description {
   text-align: center;
   color: var(--color-dark-alt);
+}
+
+/*-----search-----*/
+.search {
+  padding: 96px 304px;
+  text-align: center;
+}
+
+.search-title {
+  margin: 0 auto 20px;
+  font-size: 30px;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.search-description {
+  margin-bottom: 54px;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--color-dark-alt);
+  text-align: center;
+}
+
+.search-button {
+  display: inline-block;
+  padding: 8px 50px;
+  width: 376px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.8;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-ligth);
+  background-color: var(--color-brown-light);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+
+.search-button:hover,
+.search-button:focus-visible {
+  background-color: var(--color-brown);
+}
+
+@supports not selector(:focus-visible) {
+  .search-button:focus {
+    background-color: var(--color-brown);
+  }
+}
+
+.search-button:active {
+  color: rgba(225, 225, 225, 0.3);
+  background-color: var(--color-brown-light);
+}
+
+.search-button:disabled,
+.search-button-disabled {
+  background-color: var(--color-light-second);
+  pointer-events: none;
+}
+
+/*-----subscribe-----*/
+.subscribe {
+  padding: 96px 258px 104px;
+  text-align: center;
+}
+
+.subscribe-theme-custom {
+  background-image: url("../images/subscribe-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.subscribe-title {
+  margin-bottom: 20px;
+  font-size: 30px;
+  line-height: 1.2;
+  color: var(--color-ligth);
+  text-transform: uppercase;
+}
+
+.subscribe-description {
+  margin: 0 auto 54px;
+  width: 475px;
+  font-size: 22px;
+  line-height: 1.18;
+  color: var(--color-ligth);
+  text-align: center;
+}
+
+.subscribe-form {
+  display: flex;
+  width: 100%;
+}
+
+.subscribe-form-name {
+  margin: 0;
+  flex-grow: 1;
+  display: flex;
+}
+
+.subscribe-form-name .user-email {
+  width: 100%;
+}
+
+.user-email {
+  padding: 14px 20px;
+  line-height: 1.16;
+  background-color: var(--color-light-third);
+  border-radius: 4px 0 0 4px;
+  border: 2px solid var(--color-light-third);
+  transition-duration: 0.2s;
+}
+
+.user-email:hover {
+  background-color: #e6e6e6;
+}
+
+.user-email:focus-visible {
+  background-color: var(--color-light-third);
+  outline: 3px solid var(--color-light-blue-alt);
+}
+
+.user-email:focus-visible:not(:placeholder-shown) {
+  border: 2px solid var(--color-dark);
+  outline: none;
+}
+
+@supports not selector(:focus-visible) {
+  .user-email:focus {
+    background-color: var(--color-light-third);
+    outline: 3px solid var(--color-light-blue-alt);
+  }
+
+  .user-email:focus:not(:placeholder-shown) {
+    border: 2px solid var(--color-dark);
+    outline: none;
+  }
+}
+
+.user-email::placeholder {
+  color: var(--color-dark);
+  opacity: 0.6;
+}
+
+.subscribe-button {
+  display: inline-block;
+  padding: 8px 50px;
+  font-size: 20px;
+  line-height: 1.8;
+  font-weight: 700;
+  color: var(--color-ligth);
+  background-color: var(--color-light-blue);
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 0 4px 4px 0;
+  max-width: 232px;
+  transition-duration: 0.2s;
+}
+
+.subscribe-button:hover {
+  background-color: var(--color-blue);
+}
+
+.subscribe-button:focus-visible {
+  background-color: var(--color-blue);
+}
+
+@supports not selector(:focus-visible) {
+  .subscribe-button:focus {
+    background-color: var(--color-blue);
+  }
+}
+
+.subscribe-button:active {
+  color: rgba(255, 255, 255, 0.3);
+  background-color: var(--color-light-blue);
+}
+
+.subscribe-button:disabled {
+  background-color: var(--color-light-second);
 }
